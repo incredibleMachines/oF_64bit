@@ -59,7 +59,7 @@ int count = 0;
         _bPaused = NO;
         _bMovieDone = NO;
         
-        _useTexture = YES;
+        _useTexture = NO;
         _useAlpha = NO;
         
         _frameRate = 0.0;
@@ -418,6 +418,8 @@ int count = 0;
 //--------------------------------------------------------------
 - (void)pixels:(unsigned char *)outbuf
 {
+    @autoreleasepool {
+    
     if (_latestPixelFrame == NULL) return;
 		
 //    NSLog(@"pixel buffer width is %ld height %ld and bpr %ld, movie size is %d x %d ",
@@ -425,6 +427,7 @@ int count = 0;
 //      CVPixelBufferGetHeight(_latestPixelFrame),
 //      CVPixelBufferGetBytesPerRow(_latestPixelFrame),
 //      (NSInteger)movieSize.width, (NSInteger)movieSize.height);
+    
     if ((NSInteger)self.width != CVPixelBufferGetWidth(_latestPixelFrame) || (NSInteger)self.height != CVPixelBufferGetHeight(_latestPixelFrame)) {
         NSLog(@"CoreVideo pixel buffer is %ld x %ld while self reports size of %ld x %ld. This is most likely caused by a non-square pixel video format such as HDV. Open this video in texture only mode to view it at the appropriate size",
               CVPixelBufferGetWidth(_latestPixelFrame), CVPixelBufferGetHeight(_latestPixelFrame), (long)self.width, (long)self.height);
@@ -464,6 +467,7 @@ int count = 0;
     
     if (err != kvImageNoError) {
         NSLog(@"Error in Pixel Copy vImage_error %ld", err);
+    }
     }
 }
 

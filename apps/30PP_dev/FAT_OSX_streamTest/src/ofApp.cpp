@@ -26,6 +26,7 @@ void ofApp::setup(){
     count=BUFFER_SIZE-1;
     bContentLoaded=false;
     contentTriggered=false;
+    bInit=false;
     
     
     drawTex.allocate(2000,720,GL_RGB);
@@ -44,14 +45,28 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-        if(contentBuffer[play].loaded==true){
-            contentBuffer[play].video.update();
-            drawTex.loadData(contentBuffer[play].video.getPixels(),2000,720,GL_RGB);
+    for(int i=0;i<BUFFER_SIZE;i++){
+        contentBuffer[i].video.update();
+        if(contentBuffer[i].loaded==false){
+            if(contentBuffer[i].video.isLoaded()){ //.isAsyncLoaded() !!
+                cout<<"loaded: "<<i<<endl;
+                contentBuffer[i].loaded=true;
+                contentBuffer[i].video.setPaused(true);
+                contentBuffer[i].video.setFrame(0);
+                if(bInit==false){
+                    cout<<"play :"<<i<<endl;
+                    contentBuffer[i].video.play();
+                    bInit=true;
+                }
             }
+        }
+    }
+        if(contentBuffer[play].loaded==true){
+            drawTex.loadData(contentBuffer[play].video.getPixels(),2000,720,GL_RGB);
+        }
     
 
-    
-    if(contentBuffer[play].video.getCurrentFrame()==contentBuffer[play].video.getTotalNumFrames()&&contentBuffer[play].video.getCurrentFrame()!=0){
+    if(contentBuffer[play].video.getCurrentFrame()==contentBuffer[play].video.getTotalNumFrames()&&contentBuffer[play].video.getCurrentFrame()>0){
         
         play++;
         if(play>BUFFER_SIZE-1){
@@ -68,12 +83,10 @@ void ofApp::update(){
             load=BUFFER_SIZE-1;
         }
         
-        
-        cout<<"switch"<<endl;
-        contentBuffer[play].video.setFrame(0);
+        contentBuffer[play].video.play();
+        cout<<"playing slot:"<<play<<endl;
         bFirst=false;
         bLoaded=false;
-        cout<<"playing: "<< contentBuffer[play].video.getMoviePath()<<endl;
     }
     
     if(bFirst==false){
@@ -91,22 +104,13 @@ void ofApp::update(){
             cout<<"closed"<<endl;
             contentBuffer[load].video.loadMovie(filepaths[count]);
             contentBuffer[load].loaded=false;
-            cout<<"Loading: "<<contentBuffer[load].video.getMoviePath()<<endl;
+//            cout<<"Loading: "<<contentBuffer[load].video.getMoviePath()<<endl;
             loopCount++;
         }
     }
     
     
-    for(int i=0;i<BUFFER_SIZE;i++){
-        if(contentBuffer[i].loaded==false){
-            if(contentBuffer[i].video.isLoaded()){ //.isAsyncLoaded() !!
-                cout<<"loaded"<<endl;
-                contentBuffer[i].loaded=true;
-                cout<<sizeof(contentBuffer[i].video.getPixels())<<endl;
-                contentBuffer[i].video.play();
-            }
-        }
-    }
+
 
 }
 

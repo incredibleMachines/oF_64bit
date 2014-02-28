@@ -36,7 +36,7 @@ class ofApp : public ofBaseApp {
     
     int play,destroy,load, count;
     
-    bool bFirst,bLoaded;
+    bool bFirst,bLoaded, bInit;
     ofTexture drawTex;
     
     float timer;

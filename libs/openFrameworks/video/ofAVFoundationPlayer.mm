@@ -40,11 +40,11 @@ bool ofAVFoundationPlayer::loadMovie(string path)
         close();
     }
 	
-	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool{
 	
     moviePlayer = [[AVFMovieRenderer alloc] init];
     [moviePlayer setUseAlpha:(pixelFormat == OF_PIXELS_RGBA)];
-    [moviePlayer setUseTexture:YES];
+    [moviePlayer setUseTexture:NO];
 
 
 	if (Poco::icompare(path.substr(0, 7), "http://")  == 0 ||
@@ -56,7 +56,7 @@ bool ofAVFoundationPlayer::loadMovie(string path)
         path = ofToDataPath(path, false);
         [moviePlayer loadFilePath:[NSString stringWithUTF8String:path.c_str()]];
     }
-	[pool release];
+    }
     
     bShouldPlay = false;
     return true;
@@ -74,10 +74,10 @@ void ofAVFoundationPlayer::close()
     pixels.clear();
 	
     if (moviePlayer != nil) {
-//		NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-        [moviePlayer release];
-        moviePlayer = nil;
-//		[pool release];
+        @autoreleasepool {
+            [moviePlayer release];
+            moviePlayer = nil;
+        }
 
     }
     
