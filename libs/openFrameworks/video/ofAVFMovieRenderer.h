@@ -42,6 +42,8 @@
     BOOL _bAudioLoaded;
     BOOL _bPaused;
     BOOL _bMovieDone;
+    
+    int _pixelLoadCount;
     	
     // audio stuff
     NSMutableData *_amplitudes;

@@ -75,6 +75,7 @@
 // video
 #include "ofVideoGrabber.h"
 #include "ofVideoPlayer.h"
+#include "ofAVQueuePlayer.h"
 
 //--------------------------
 // events

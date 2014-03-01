@@ -253,7 +253,7 @@ int count = 0;
                          }];
                     }
                 }
-                
+               //
                 _bLoading = NO;
                 _bLoaded = YES;
             }
@@ -390,7 +390,7 @@ int count = 0;
                 NSLog(@"Error creating OpenGL texture %d", err);
             }
         }
-                
+        
         // Update time.
         _currentTime = self.player.currentItem.currentTime;
         _duration = self.player.currentItem.duration;

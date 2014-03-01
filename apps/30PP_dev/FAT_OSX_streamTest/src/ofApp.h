@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofAVQueuePlayer.h"
 
 #define NUM_VIDS 5
 #define BUFFER_SIZE 3
@@ -25,12 +26,12 @@ class ofApp : public ofBaseApp {
 
     class videoLoader{
         public:
-            ofVideoPlayer video;
+            ofAVQueuePlayer video;
             bool loaded;
             bool setup;            
     };
     
-    videoLoader contentBuffer[BUFFER_SIZE];
+    videoLoader queue;
     
     string filepaths[NUM_VIDS];
     

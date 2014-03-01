@@ -190,7 +190,7 @@ void ofQTKitPlayer::setSpeed(float rate){
 //--------------------------------------------------------------------
 void ofQTKitPlayer::play(){
 	if(!isLoaded()) return;
-    
+
     bPaused = false;
     
 	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];

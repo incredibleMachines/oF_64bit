@@ -177,6 +177,14 @@
 		92C55F88132DA7DD00EC2631 /* ofPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92C55F86132DA7DD00EC2631 /* ofPath.cpp */; };
 		92C55F89132DA7DD00EC2631 /* ofPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 92C55F87132DA7DD00EC2631 /* ofPath.h */; };
 		BBAB23BD13894D2600AA2426 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAB23BC13894D2600AA2426 /* GLUT.framework */; };
+		D327D45018C0FB4B002F93EF /* ofAVQueueRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = D327D44E18C0FB4B002F93EF /* ofAVQueueRenderer.h */; };
+		D327D45118C0FB4B002F93EF /* ofAVQueueRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = D327D44E18C0FB4B002F93EF /* ofAVQueueRenderer.h */; };
+		D327D45218C0FB4B002F93EF /* ofAVQueueRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = D327D44F18C0FB4B002F93EF /* ofAVQueueRenderer.m */; };
+		D327D45318C0FB4B002F93EF /* ofAVQueueRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = D327D44F18C0FB4B002F93EF /* ofAVQueueRenderer.m */; };
+		D327D45618C0FC3B002F93EF /* ofAVQueuePlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D327D45418C0FC3B002F93EF /* ofAVQueuePlayer.mm */; };
+		D327D45718C0FC3B002F93EF /* ofAVQueuePlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D327D45418C0FC3B002F93EF /* ofAVQueuePlayer.mm */; };
+		D327D45818C0FC3B002F93EF /* ofAVQueuePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = D327D45518C0FC3B002F93EF /* ofAVQueuePlayer.h */; };
+		D327D45918C0FC3B002F93EF /* ofAVQueuePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = D327D45518C0FC3B002F93EF /* ofAVQueuePlayer.h */; };
 		DA48FE77131D85A6000062BC /* ofPolyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA48FE73131D85A6000062BC /* ofPolyline.cpp */; };
 		DA48FE78131D85A6000062BC /* ofPolyline.h in Headers */ = {isa = PBXBuildFile; fileRef = DA48FE74131D85A6000062BC /* ofPolyline.h */; };
 		DA94C2F01301D32200CCC773 /* ofRendererCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = DA94C2ED1301D32200CCC773 /* ofRendererCollection.h */; };
@@ -328,6 +336,10 @@
 		92C55F86132DA7DD00EC2631 /* ofPath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofPath.cpp; sourceTree = "<group>"; };
 		92C55F87132DA7DD00EC2631 /* ofPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofPath.h; sourceTree = "<group>"; };
 		BBAB23BC13894D2600AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		D327D44E18C0FB4B002F93EF /* ofAVQueueRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAVQueueRenderer.h; sourceTree = "<group>"; };
+		D327D44F18C0FB4B002F93EF /* ofAVQueueRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ofAVQueueRenderer.m; sourceTree = "<group>"; };
+		D327D45418C0FC3B002F93EF /* ofAVQueuePlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ofAVQueuePlayer.mm; sourceTree = "<group>"; };
+		D327D45518C0FC3B002F93EF /* ofAVQueuePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAVQueuePlayer.h; sourceTree = "<group>"; };
 		DA48FE73131D85A6000062BC /* ofPolyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofPolyline.cpp; sourceTree = "<group>"; };
 		DA48FE74131D85A6000062BC /* ofPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofPolyline.h; sourceTree = "<group>"; };
 		DA94C2ED1301D32200CCC773 /* ofRendererCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofRendererCollection.h; sourceTree = "<group>"; };
@@ -656,6 +668,10 @@
 				E703368F15D4B03E009A3FDE /* ofQTKitPlayer.h */,
 				FDFC9EF01600D70500EDD797 /* ofQTKitMovieRenderer.h */,
 				FDFC9EF11600D70600EDD797 /* ofQTKitMovieRenderer.m */,
+				D327D45518C0FC3B002F93EF /* ofAVQueuePlayer.h */,
+				D327D45418C0FC3B002F93EF /* ofAVQueuePlayer.mm */,
+				D327D44E18C0FB4B002F93EF /* ofAVQueueRenderer.h */,
+				D327D44F18C0FB4B002F93EF /* ofAVQueueRenderer.m */,
 				E73DA808189F2573006C9E4E /* ofAVFoundationPlayer.h */,
 				E73DA809189F2573006C9E4E /* ofAVFoundationPlayer.mm */,
 				E73DA80A189F2573006C9E4E /* ofAVFMovieRenderer.h */,
@@ -830,6 +846,7 @@
 				2E3D4F1018A45475007DED10 /* ofAVFMovieRenderer.h in Headers */,
 				2E3D4F1118A45475007DED10 /* ofEasyCam.h in Headers */,
 				2E3D4F1218A45475007DED10 /* ofNode.h in Headers */,
+				D327D45118C0FB4B002F93EF /* ofAVQueueRenderer.h in Headers */,
 				2E3D4F1318A45475007DED10 /* ofBaseSoundPlayer.h in Headers */,
 				2E3D4F1418A45475007DED10 /* ofFmodSoundPlayer.h in Headers */,
 				2E3D4F1518A45475007DED10 /* ofSoundPlayer.h in Headers */,
@@ -860,6 +877,7 @@
 				2E3D4F2E18A45475007DED10 /* ofGraphics.h in Headers */,
 				2E3D4F2F18A45475007DED10 /* ofImage.h in Headers */,
 				2E3D4F3018A45475007DED10 /* ofPixels.h in Headers */,
+				D327D45918C0FC3B002F93EF /* ofAVQueuePlayer.h in Headers */,
 				2E3D4F3118A45475007DED10 /* ofTessellator.h in Headers */,
 				2E3D4F3218A45475007DED10 /* ofTrueTypeFont.h in Headers */,
 				2E3D4F3318A45475007DED10 /* ofCairoRenderer.h in Headers */,
@@ -903,6 +921,7 @@
 				E73DA80E189F2573006C9E4E /* ofAVFMovieRenderer.h in Headers */,
 				E4F3BA6C12F4C4BF002D19BB /* ofEasyCam.h in Headers */,
 				E4F3BA7412F4C4BF002D19BB /* ofNode.h in Headers */,
+				D327D45018C0FB4B002F93EF /* ofAVQueueRenderer.h in Headers */,
 				E4F3BA8912F4C4C9002D19BB /* ofBaseSoundPlayer.h in Headers */,
 				E4F3BA8B12F4C4C9002D19BB /* ofFmodSoundPlayer.h in Headers */,
 				E4F3BA8F12F4C4C9002D19BB /* ofSoundPlayer.h in Headers */,
@@ -933,6 +952,7 @@
 				E4F3BB1D12F4C752002D19BB /* ofGraphics.h in Headers */,
 				E4F3BB1F12F4C752002D19BB /* ofImage.h in Headers */,
 				E4F3BB2112F4C752002D19BB /* ofPixels.h in Headers */,
+				D327D45818C0FC3B002F93EF /* ofAVQueuePlayer.h in Headers */,
 				E4F3BB2B12F4C752002D19BB /* ofTessellator.h in Headers */,
 				E4F3BB2F12F4C752002D19BB /* ofTrueTypeFont.h in Headers */,
 				DA97FD3D12F5A61A005C9991 /* ofCairoRenderer.h in Headers */,
@@ -1037,6 +1057,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D327D45718C0FC3B002F93EF /* ofAVQueuePlayer.mm in Sources */,
 				2E3D4F5018A45475007DED10 /* ofAppRunner.cpp in Sources */,
 				2E3D4F5118A45475007DED10 /* ofArduino.cpp in Sources */,
 				2E3D4F5218A45475007DED10 /* ofSerial.cpp in Sources */,
@@ -1085,6 +1106,7 @@
 				2E3D4F7D18A45475007DED10 /* ofMaterial.cpp in Sources */,
 				2E3D4F7E18A45475007DED10 /* ofShader.cpp in Sources */,
 				2E3D4F7F18A45475007DED10 /* ofTexture.cpp in Sources */,
+				D327D45318C0FB4B002F93EF /* ofAVQueueRenderer.m in Sources */,
 				2E3D4F8018A45475007DED10 /* ofVbo.cpp in Sources */,
 				2E3D4F8118A45475007DED10 /* ofVboMesh.cpp in Sources */,
 				2E3D4F8218A45475007DED10 /* ofPath.cpp in Sources */,
@@ -1109,6 +1131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D327D45618C0FC3B002F93EF /* ofAVQueuePlayer.mm in Sources */,
 				E4B27C1910CBEB9D00536013 /* ofAppRunner.cpp in Sources */,
 				E4B27C1A10CBEB9D00536013 /* ofArduino.cpp in Sources */,
 				E4B27C1B10CBEB9D00536013 /* ofSerial.cpp in Sources */,
@@ -1157,6 +1180,7 @@
 				DACFA8E1132D09E8008D4B7A /* ofMaterial.cpp in Sources */,
 				DACFA8E3132D09E8008D4B7A /* ofShader.cpp in Sources */,
 				DACFA8E5132D09E8008D4B7A /* ofTexture.cpp in Sources */,
+				D327D45218C0FB4B002F93EF /* ofAVQueueRenderer.m in Sources */,
 				DACFA8E7132D09E8008D4B7A /* ofVbo.cpp in Sources */,
 				DACFA8E9132D09E8008D4B7A /* ofVboMesh.cpp in Sources */,
 				92C55F88132DA7DD00EC2631 /* ofPath.cpp in Sources */,

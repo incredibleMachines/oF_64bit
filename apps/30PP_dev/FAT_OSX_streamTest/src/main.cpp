@@ -21,6 +21,7 @@ int main( ){
     
     win->setNumSamples(4);
     win->setOpenGLVersion(4,4);
+    win->setVerticalSync(true);
     ofSetCurrentRenderer(ofGLProgrammableRenderer::TYPE);
     
     ofSetupOpenGL(win,1920,1080,OF_FULLSCREEN);
