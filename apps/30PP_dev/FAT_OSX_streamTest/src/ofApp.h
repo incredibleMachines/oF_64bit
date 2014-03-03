@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofAVQueuePlayer.h"
 
-#define NUM_VIDS 5
+#define NUM_VIDS 6
 #define BUFFER_SIZE 3
 
 class ofApp : public ofBaseApp {
@@ -28,14 +28,14 @@ class ofApp : public ofBaseApp {
         public:
             ofAVQueuePlayer video;
             bool loaded;
-            bool setup;            
+            bool playing;
     };
     
-    videoLoader queue;
+    videoLoader queue[3];
     
     string filepaths[NUM_VIDS];
     
-    int play,destroy,load, count;
+    int play, load, count;
     
     bool bFirst,bLoaded, bInit;
     ofTexture drawTex;

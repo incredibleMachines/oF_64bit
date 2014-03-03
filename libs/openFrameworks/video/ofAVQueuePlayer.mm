@@ -24,6 +24,8 @@ ofAVQueuePlayer::ofAVQueuePlayer()
     pixelFormat = OF_PIXELS_RGB;
     currentLoopState = OF_LOOP_NORMAL;
     
+    NSLog(@"player constructor");
+    
 }
 
 //--------------------------------------------------------------
@@ -36,17 +38,17 @@ ofAVQueuePlayer::~ofAVQueuePlayer()
 bool ofAVQueuePlayer::addVideo(string path)
 {
     
-    if (bInitialized) {
-        close();
-    }
+//    if (bInitialized) {
+//        close();
+//    }
 	
 	@autoreleasepool{
         
-        moviePlayer = [[AVQueueRenderer alloc] init];
+//        moviePlayer = [[AVQueueRenderer alloc] init];
             path = ofToDataPath(path, false);
             [moviePlayer addVideo:[NSString stringWithUTF8String:path.c_str()]];
     }
-    bShouldPlay = false;
+//    bShouldPlay = false;
     return true;
 }
 //--------------------------------------------------------------
@@ -59,7 +61,6 @@ void ofAVQueuePlayer::close()
             [moviePlayer release];
             moviePlayer = nil;
         }
-        
     }
     
     bInitialized = false;
@@ -75,9 +76,13 @@ void ofAVQueuePlayer::idleMovie()
 //--------------------------------------------------------------
 void ofAVQueuePlayer::update()
 {
-    if (!moviePlayer) return;
+    if (!moviePlayer) {
+        NSLog(@"no moviePlayer");
+        return;
+    }
     
     if ([moviePlayer bLoaded]) {
+//        NSLog(@"update");
         if (!bInitialized) {
 			reallocatePixels();
             bInitialized = true;
@@ -92,7 +97,6 @@ void ofAVQueuePlayer::update()
 				bShouldPlay = false;
 			}
         }
-        
 		bNewFrame = [moviePlayer update];
         bHavePixelsChanged = bNewFrame;
     }
@@ -368,6 +372,7 @@ void ofAVQueuePlayer::reallocatePixels()
 }
 
 void ofAVQueuePlayer::nextVideo(){
+    NSLog(@"play next");
     [moviePlayer advanceVideo];
 }
 
@@ -375,17 +380,27 @@ bool ofAVQueuePlayer::getLoadedState(){
     return [moviePlayer bLoaded];
 }
 
-
+bool ofAVQueuePlayer::getFinished(){
+    return [moviePlayer bFinished];
+}
 
 void ofAVQueuePlayer::initPlayer(string filepath[3]){
-    NSLog(@"playerInit");
     
-
-    NSString *string=[NSString stringWithUTF8String:filepath[0].c_str()];
-    NSString *string1=[NSString stringWithUTF8String:filepath[1].c_str()];
-    NSString *string2=[NSString stringWithUTF8String:filepath[2].c_str()];
-    NSArray *files=[NSArray arrayWithObjects:string, string1, string2, nil];
-    NSLog(@"playerString");
-    [moviePlayer init];
-    [moviePlayer initPlayer:files];
+    @autoreleasepool{
+        NSLog(@"playerInit");
+        cout<<filepath[0]<<endl;
+        
+        for(int i=0; i<3;i++){
+            filepath[i] = ofToDataPath(filepath[i], false);
+        }
+        
+        NSString *string=[NSString stringWithUTF8String:filepath[0].c_str()];
+        NSString *string1=[NSString stringWithUTF8String:filepath[1].c_str()];
+        NSString *string2=[NSString stringWithUTF8String:filepath[2].c_str()];
+        NSLog(@"file1: %@",string);
+        NSArray *files=[NSArray arrayWithObjects:string, string1, string2,nil];
+        NSLog(@"arrayFile1: %@",files[0]);
+        moviePlayer=[AVQueueRenderer alloc];
+        [moviePlayer initPlayer:files];
+    }
 }

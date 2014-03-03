@@ -13,20 +13,22 @@
 
 #define BUFFER_SIZE 3
 
-@interface AVQueueRenderer : AVPlayer {
+@interface AVQueueRenderer : AVPlayer <AVPlayerItemOutputPullDelegate> {
     AVQueuePlayer * _queuePlayer;
     AVPlayerItem * _playerItem;
-    AVPlayerItem *loadItem1;
-    AVPlayerItem *loadItem2;
-    AVPlayerItem *loadItem3;
+    AVPlayerItem *_loadItem;
+    AVPlayerItem *_loadItem1;
+    AVPlayerItem *_loadItem2;
+    dispatch_queue_t _outputQ;
     
     BOOL _bLoading;
     BOOL _bLoaded;
     BOOL _bPaused;
-    BOOL _bMovieDone;
+    BOOL _bFinished;
     BOOL _bLoops;
     CMTime _currentTime;
     CMTime _duration;
+    CMTime _startTime;
     double _playbackRate;
     double _frameRate;
     
@@ -36,6 +38,8 @@
     
     id _playerItemVideoOutput;
     CVPixelBufferRef _latestPixelFrame;
+    
+    CVDisplayLinkRef displayLink;
     
     
 }
@@ -47,6 +51,7 @@
 
 @property (nonatomic, assign, readonly, getter = isLoading) BOOL bLoading;
 @property (nonatomic, assign, readonly) BOOL bLoaded;
+@property (nonatomic, assign, readonly) BOOL bFinished;
 
 @property (nonatomic, assign, getter = isPaused, setter = setPaused:) BOOL bPaused;
 @property (nonatomic, assign, readonly) BOOL isPlaying;
@@ -71,5 +76,6 @@
 - (void)pixels:(unsigned char *)outbuf;
 
 - (void)initPlayer:(NSArray*)files;
+- (void)makeActive;
 
 @end

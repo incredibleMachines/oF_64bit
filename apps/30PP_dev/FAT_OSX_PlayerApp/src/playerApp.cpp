@@ -160,8 +160,8 @@ void playerApp::keyPressed(int key){
                 for(int j=0;j<MESH_NUM;j++){
                     string files[3];
                     files[0]="output.mov";
-                    files[1]="output.mov";
-                    files[2]="output.mov";
+                    files[1]="one";
+                    files[2]="two.mov";
                     mesh.video[i].initPlayer(files);
                 }
             }

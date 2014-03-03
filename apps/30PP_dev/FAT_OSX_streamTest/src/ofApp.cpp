@@ -14,79 +14,52 @@ void ofApp::setup(){
     ofEnableSmoothing();
     ofSetVerticalSync(true);
     
-    filepaths[0]="LeftWall_UV_2.mov";
+    filepaths[0]="output.mov";
     filepaths[1]="two.mov";
-    filepaths[2]="LeftWall_UV_2.mov";
-    filepaths[3]="four.mov";
-    filepaths[4]="five.mov";
-//    filepaths[4]="LeftWall_UV_6.mov";
+    filepaths[2]="three.mov";
     
     play=0;
-    load=0;
+    load=1;
     bFirst=true;
     count=BUFFER_SIZE-1;
     bContentLoaded=false;
     contentTriggered=false;
     bInit=false;
     
-    queue.loaded=false;
+    queue[0].loaded=false;
+    queue[1].loaded=false;
     
     drawTex.allocate(1920,1080,GL_RGB);
     loopCount=0;
+    bLoaded=false;
     
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    queue.video.update();
-    if(queue.video.getLoadedState()==true){ //.isAsyncLoaded() !!
-        if(queue.video.isFrameNew()){
-            drawTex.loadData(queue.video.getPixels(),1920,1080,GL_RGB);
-            if(queue.loaded==false){
-                cout<<"set play"<<endl;
-                queue.video.play();
-                queue.loaded=true;
-            }
+    queue[0].video.update();
+    
+    if(queue[0].video.getLoadedState()==true){ //.isAsyncLoaded() !!
+        queue[0].loaded=true;
+        if(queue[0].video.isFrameNew()){
+            drawTex.loadData(queue[0].video.getPixels(),1920,1080,GL_RGB);
         }
     }
-
     
-
-    if(queue.video.getCurrentFrame()>=queue.video.getTotalNumFrames()-1&&queue.video.getCurrentFrame()>0){
-        
-        queue.video.nextVideo();
-        queue.loaded=false;
-        cout<<"playing slot:"<<play<<endl;
-        bFirst=false;
-        bLoaded=false;
-    }
-    
-    if(bFirst==false){
-        if(queue.video.getCurrentFrame()>queue.video.getTotalNumFrames()/2&&bLoaded==false){
-
-            count++;
-            if (count>NUM_VIDS-1){
-                count=0;
-            }
-            bLoaded=true;
-            
-            queue.video.addVideo(filepaths[count]);
-        }
-    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
     ofSetColor(255,255,255);
-    if(queue.video.getLoadedState()==true){
+    
+    if(queue[0].loaded==true){
         drawTex.draw(0,0);
     }
     
     ofSetColor(0,0,0);
     ofDrawBitmapString("number loads: "+ofToString(loopCount)+"  seconds :"+ofToString(ofGetElapsedTimeMillis()/1000),200,800);
-        ofDrawBitmapString("Frame rate: "+ofToString(ofGetFrameRate()),200,820);
+    ofDrawBitmapString("Frame rate: "+ofToString(ofGetFrameRate()),200,820);
 
 }
 
@@ -94,11 +67,15 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
     if(key=='0'){
         string initArray[3];
-        for(int i=0;i<BUFFER_SIZE;i++){
-            initArray[i]=filepaths[i];
+        int arrayCount=0;
+        for(int i=0;i<3;i++){
+            cout<<i<<endl;
+            initArray[arrayCount]=filepaths[i];
+            arrayCount++;
         }
-        cout<<"testApp init";
-        queue.video.initPlayer(initArray);
+        queue[0].video.initPlayer(initArray);
+        queue[0].loaded=false;
+        
     }
 }
 

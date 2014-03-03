@@ -79,6 +79,7 @@ public:
     void nextVideo();
     
     void initPlayer(string filepath[3]);
+    bool getFinished();
     
 protected:
     
@@ -111,6 +112,7 @@ protected:
     // and avoid ugly casts in the .m file
 #ifdef __OBJC__
     AVQueueRenderer* moviePlayer;
+    AVQueueRenderer* moviePlayer2;
 #else
     void * moviePlayer;
 #endif

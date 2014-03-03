@@ -662,9 +662,9 @@
 				E42732AE15F10E7A00BBC533 /* ofQuickTimePlayer.h */,
 				E4B27AD610CBE92A00536013 /* ofQtUtils.cpp */,
 				E4B27AD710CBE92A00536013 /* ofQtUtils.h */,
+				E703369015D4B03E009A3FDE /* ofQTKitPlayer.mm */,
 				E703368E15D4B03E009A3FDE /* ofQTKitGrabber.mm */,
 				E703368D15D4B03E009A3FDE /* ofQTKitGrabber.h */,
-				E703369015D4B03E009A3FDE /* ofQTKitPlayer.mm */,
 				E703368F15D4B03E009A3FDE /* ofQTKitPlayer.h */,
 				FDFC9EF01600D70500EDD797 /* ofQTKitMovieRenderer.h */,
 				FDFC9EF11600D70600EDD797 /* ofQTKitMovieRenderer.m */,
@@ -1244,7 +1244,7 @@
 					"$(LIB_FMODEX)",
 				);
 				PRODUCT_NAME = openFrameworks64Debug;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
@@ -1290,7 +1290,7 @@
 					"$(LIB_FMODEX)",
 				);
 				PRODUCT_NAME = openFrameworks64;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};
@@ -1334,7 +1334,7 @@
 					"$(LIB_FMODEX)",
 				);
 				PRODUCT_NAME = openFrameworksDebug;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
@@ -1380,7 +1380,7 @@
 					"$(LIB_FMODEX)",
 				);
 				PRODUCT_NAME = openFrameworks;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};
